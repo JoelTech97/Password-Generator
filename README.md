@@ -11,7 +11,7 @@ The password can include special characters. If you’re unfamiliar with these, 
 The following image shows the web application's appearance and functionality:
 
 ![password generator demo](./assets/05-javascript-challenge-demo.png)
-
+  
 
 * Generate a password when the button is clicked
   * Present a series of prompts for password criteria

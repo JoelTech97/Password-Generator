@@ -101,7 +101,7 @@ function getPasswordOptions() {
         var includeNumeric = confirm("Include numeric characters?");
         if (!includeSpecial && !includeNumeric && !includeLowercase && !includeUppercase) {
             alert("Please select at least one character type.");
-            return null; 
+            return null; // Return null to indicate an invalid input
         }
         return {
             length: length,
@@ -115,10 +115,11 @@ function getPasswordOptions() {
 // Function for getting a random element from an array
 function getRandom(arr) { 
  return arr [Math.floor(Math.random() * arr.length)];
+
 }
     
 // Function to generate password with user input
-function generatePassword() {
+function generatePassword(options) {
     var password = '';
     var allCharacters = [];
 
@@ -139,7 +140,6 @@ function generatePassword() {
         password += getRandom(allCharacters);
       }
 return password;
-
 }
 
 // Get references to the #generate element
@@ -147,15 +147,15 @@ var generateBtn = document.querySelector('#generate');
 
 // Write password to the #password input
 function writePassword() {
-    var options = getPasswordOptions(); 
-    if (options) { 
-    var password = generatePassword(options);
-    var passwordText = document.querySelector('#password');
-    passwordText.value = password;
-    passwordText.textContent = ('Generated Password:' +  password );
-  } else {
-      alert ('Invalid user input. Please try again');
-  }
+  var options = getPasswordOptions(); 
+  if (options) { 
+  var password = generatePassword(options);
+  var passwordText = document.querySelector('#password');
+  passwordText.value = password;
+  passwordText.textContent = ('Generated Password:' +  password );
+} else {
+    alert ('Invalid user input. Please try again');
+}
 }
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);

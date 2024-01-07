@@ -153,6 +153,7 @@ function writePassword() {
   var passwordText = document.querySelector('#password');
   passwordText.value = password;
   passwordText.textContent = ('Generated Password:' +  password );
+  alert('Generated Password:' +  password );
 } else {
     alert ('Invalid user input. Please try again');
 }

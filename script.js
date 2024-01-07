@@ -147,6 +147,15 @@ var generateBtn = document.querySelector('#generate');
 
 // Write password to the #password input
 function writePassword() {
+    var options = getPasswordOptions(); 
+    if (options) { 
+    var password = generatePassword(options);
+    var passwordText = document.querySelector('#password');
+    passwordText.value = password;
+    passwordText.textContent = ('Generated Password:' +  password );
+  } else {
+      alert ('Invalid user input. Please try again');
+  }
 }
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
